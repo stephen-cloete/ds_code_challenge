@@ -7,14 +7,8 @@ Use the AWS S3 SELECT command to read in the H3 resolution 8 data from city-hex-
 
 Please log the time taken to perform the operations described, and within reason, try to optimise latency and computational resources used.
 
-How to use:
-Modules Needed:
--pip install boto3
-
 Files needed:
 "ds_code_challenge_creds.py"
-
-Run: python 1-data_extraction.py
 """
 from ds_code_challenge_creds import access_key, secret_key, aws_region
 from boto3.session import Session
@@ -22,6 +16,8 @@ from botocore.errorfactory import ClientError
 
 import boto3
 import datetime
+
+print('Running: 1-data_extraction.py')
 
 # Tracking Time taken for extraction to run
 extraction_start_time = datetime.datetime.now()

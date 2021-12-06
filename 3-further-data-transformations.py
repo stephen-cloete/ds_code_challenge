@@ -17,6 +17,9 @@ Please limit this commentary to less than 500 words.
 
 If your code is written in a code notebook such as Jupyter notebook or Rmarkdown, 
 you can include this commentary in your notebook.
+
+Files needed:
+"ds_code_challenge_creds.py"
 """
 
 import pandas as pd
@@ -24,19 +27,21 @@ import datetime
 import os
 import dload
 
+print('Running: 3-further-data-transformations.py')
+
 start_time = datetime.datetime.now()
 
-# fuction scrubbing data cols that needs to be anonymised.
+# fuction for anonymising.
 def clean_df(df, cols):
 	for col_name in cols:
-		keys = {cats: i for i, cats in enumerate(df[col_name].unique())}
+		keys = {anonymising: i for i, anonymising in enumerate(df[col_name].unique())}
 		df[col_name] = df[col_name].apply(lambda x: keys[x])
 	return df
 	
-# function setting location accuracy to within approximately 500m
-def location_df(df, l_cols):
-	for col_name in l_cols:
-		keys = {cats: i for i, cats in enumerate(df[col_name].unique())}
+# function for location accuracy to within approximately 500m
+def location_df(df, cols):
+	for col_name in cols:
+		keys = {location: i for i, location in enumerate(df[col_name].unique())}
 		df[col_name] = df[col_name].apply(lambda x: keys[x]+0.00400)			
 	return df
 
@@ -52,30 +57,37 @@ else:
 	else:
 		raise Exception('file not downloaded')
 
-#open input file provided
+# open input file provided
 try:
-    df = pd.read_csv('sr_hex.csv/sr_hex.csv')
-    # replace NaN values by Zeroes
-    df = df.fillna(0)
-    # Cols we scrubbing 
-    print(df.head)
-    cols = ["SubCouncil2016", "Wards2016", "OfficialSuburbs", "h3_level8_index"]		
-    df = clean_df(df, cols)
-    # location accuracy to within approximately 500m
-    l_cols = ["Latitude", "Longitude"]
-    df = location_df(df, l_cols)
-    #Output file being created
-	print('Report Output')
-	print(df.head)
+	df = pd.read_csv('sr_hex.csv/sr_hex.csv')
+	print('raw dataset:')
+	print(df.loc[[1,2,3,4,5],["SubCouncil2016", "Wards2016", "OfficialSuburbs", "h3_level8_index"]])
+
+	# replace NaN values by Zeroes
+	df = df.fillna(0)
+
+	# Cols we scrubbing 
+	cols = ["SubCouncil2016", "Wards2016", "OfficialSuburbs", "h3_level8_index"]		
+	df = clean_df(df, cols)
+	
+	# location accuracy to within approximately 500m
+	cols = ["Latitude", "Longitude"]
+	df = location_df(df, cols)
+	print()
+	print('report output:')
+	print(df.loc[[1,2,3,4,5],["SubCouncil2016", "Wards2016", "OfficialSuburbs", "h3_level8_index"]])
+	print('report feedback:')
+	print('The dataset is now anonymised and the location accuracy is within 500m.')
+	print('Data anonymization processes personal data that is altered in such a way that a data subject can no longer be identified directly or indirectly.')
+	#Output file being created
 finally:
-    df.to_csv("anon_sr_hex.csv")
+	df.to_csv("anon_sr_hex_stephen_cloete.csv")
 
-if os.path.exists('anon_sr_hex.csv') == True:
-    print('anon_sr_hex.csv successfully written')
-    pass
+if os.path.exists('anon_sr_hex_stephen_cloete.csv') == True:
+	print('anon_sr_hex_stephen_cloete.csv successfully written')
+	pass
 else:
-    raise Exception('anon_sr_hex.csv failed to write')
-
+	raise Exception('anon_sr_hex_stephen_cloete.csv failed to write')
 
 end_time = datetime.datetime.now()
 time_taken = end_time - start_time

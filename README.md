@@ -3,6 +3,41 @@
 
 # City of Cape Town - Data Science Unit Code Challenge
 
+## Getting Started
+
+### Requirements
+------------
+```
+    # Open a Git Bash Terminal and execute the below
+
+    git clone https://github.com/stephen-cloete/ds_code_challenge.git
+    cd ds_code_challenge
+    python -m venv venv
+
+    # Activate venv 
+    # e.g source ~/venv/bin/activate or ./venv/Scripts/activate
+
+    # Run the pip install
+    pip install -r requirements.txt
+
+    # Ensure all python libraries installed correctly
+    pip freeze
+```
+
+### Running the ds_code_challenge.git
+------------
+
+```
+# within your terminal or IDE execute the python file 0-ds_code_challenge.py
+python 0-ds_code_challenge.py
+
+# or execute the python files 1 to 4 separately 
+python 1-data-extraction.py
+python 2-intial-transformation.py
+python 3-further-data-transformations.py
+python 4-data-loading.py
+
+```
 ## Purpose
 
 The purpose of this challenge is to evaluate the skills of prospective Data Scientists, Engineers and Analysts for positions in the City of Cape Town's Data Science unit. 
