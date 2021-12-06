@@ -14,7 +14,7 @@
     cd ds_code_challenge
     python -m venv venv
 
-    # Activate venv 
+    # activate venv 
     # e.g source ~/venv/bin/activate or ./venv/Scripts/activate
 
     # Run the pip install
@@ -28,12 +28,12 @@
 ------------
 
 ```
-# within your terminal or IDE execute the python file 0-ds_code_challenge.py
+# within your terminal or IDE , ensure the venv is activated and execute the python file 0-ds_code_challenge.py
 python 0-ds_code_challenge.py
 
 # or execute the python files 1 to 4 separately 
 python 1-data-extraction.py
-python 2-intial-transformation.py
+python 2-initial-transformation.py
 python 3-further-data-transformations.py
 python 4-data-loading.py
 

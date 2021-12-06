@@ -6,8 +6,8 @@ print('-------------------------------------------------')
 os.system('python 1-data-extraction.py')
 print('-------------------------------------------------')
 
-# run 2-intial-transformation.py
-os.system('python 2-intial-transformation.py')
+# run 2-initial-transformation.py
+os.system('python 2-initial-transformation.py')
 print('-------------------------------------------------')
 
 # run 3-further-data-transformations.py
