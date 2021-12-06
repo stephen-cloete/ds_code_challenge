@@ -31,7 +31,6 @@ import datetime
 
 print('Running: 2-intial-transformation.py')
 
-# Tracking Time taken to run
 start_time = datetime.datetime.now()
 
 if os.path.exists('sr.csv/sr.csv'):

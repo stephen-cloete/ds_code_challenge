@@ -19,8 +19,7 @@ import datetime
 
 print('Running: 1-data_extraction.py')
 
-# Tracking Time taken for extraction to run
-extraction_start_time = datetime.datetime.now()
+start_time = datetime.datetime.now()
 
 # Compare new data set vs existing data set
 source_data_list = []
@@ -92,10 +91,10 @@ elif source_data_list.sort() != compare_data_list.sort():
     diff = source_data_list.sort() - compare_data_list.sort()
     print("difference:", diff)
 
-extraction_end_time = datetime.datetime.now()
-extraction_time_taken = extraction_end_time - extraction_start_time
+end_time = datetime.datetime.now()
+time_taken = end_time - start_time
 
 # Process time stats
-print("start_time    =  ", extraction_start_time)
-print("end_time      =  ", extraction_end_time)
-print("time_taken    =  ", extraction_time_taken)
+print("start_time    =  ", start_time)
+print("end_time      =  ", end_time)
+print("time_taken    =  ", time_taken)
